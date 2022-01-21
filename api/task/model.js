@@ -60,11 +60,8 @@ const getAllTask = async () => {
 };
 
 const create = async newTask => {
-    const { project_id } = newTask
-
     const taskId = await db('tasks').insert(newTask)
     const task =  await db('tasks').where('task_id', taskId).first()
-    const project = await db('projects'). where('project_id', project_id).first()
 
     if(task.task_completed === 0){
         return {
@@ -72,8 +69,7 @@ const create = async newTask => {
             task_description: task.task_description,
             task_notes: task.task_notes,
             task_completed: false,
-            // project_name: project.project_name,
-            // project_description: project.project_description
+            project_id: task.project_id
         }
     } else {
         return {
@@ -81,8 +77,7 @@ const create = async newTask => {
             task_description: task.task_description,
             task_notes: task.task_notes,
             task_completed: true,
-            // project_name: project.project_name,
-            // project_description: project.project_description
+            project_id: task.project_id
         }
     }
 };
