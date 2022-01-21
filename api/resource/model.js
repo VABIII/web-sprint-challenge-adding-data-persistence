@@ -11,7 +11,7 @@ const create = newTable => {
         .insert(newTable)
         .then(([resource_id]) => {
             console.log(resource_id)
-            return db('resources').where('resource_id', resource_id)
+            return db('resources').where('resource_id', resource_id).first()
         })
 };
 

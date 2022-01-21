@@ -26,8 +26,8 @@ exports.up = async function(knex) {
                 .onUpdate('RESTRICT')
         })
         .createTable('project_resources', tbl => {
-            tbl.increments()
-            tbl.string('project-resources')
+            tbl.increments('project_resource_id')
+            tbl.string('project-resource')
             tbl.integer('resource_id').notNullable()
                 .references('resource_id')
                 .inTable('resources')

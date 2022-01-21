@@ -1,18 +1,36 @@
 const router = require('express').Router();
 const Project = require('./model');
+const { checkBody } = require('./middleware')
 
-router.get('/', (req, res, next) => {
+router.get('/', checkBody, (req, res, next) => {
     Project.getAllProj()
         .then(proj => {
-            res.json(proj)
+            res.json(proj)4
         })
         .catch(next)
 });
 
 
-router.post('/', (req, res, next) => {
+router.post('/', checkBody, (req, res, next) => {
+
     Project.create(req.body)
         .then(newProj => {
+            if(newProj.project_completed === 0) {
+                res.json({
+                    project_name: newProj.project_name,
+                    project_description: newProj.project_description,
+                    project_id: newProj.project_id,
+                    project_completed: false
+                })
+            } else {
+                res.json({
+                    project_name: newProj.project_name,
+                    project_description: newProj.project_description,
+                    project_id: newProj.project_id,
+                    project_completed: true
+                })
+            }
+
             res.status(201).json(newProj)
         })
         .catch(next);
