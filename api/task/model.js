@@ -25,38 +25,7 @@ const getAllTask = async () => {
                project_description: task.project_description
            }
        }
-   })
-
-
-
-
-    // return tasks.map(task => {
-    //     if(task.task_completed === 0) {
-    //
-    //         console.log(task.task_completed)
-    //         return {
-    //             task_id: task.task_id,
-    //             task_description: task.task_description,
-    //             task_notes: task.task_notes,
-    //             task_completed: false,
-    //             project_name: task.project_name,
-    //             project_description: task.project_description
-    //         }
-    //     } else {
-    //         console.log(task.task_completed)
-    //         return {
-    //             task_id: task.task_id,
-    //             task_description: task.task_description,
-    //             task_notes: task.task_notes,
-    //             task_completed: true,
-    //             project_name: task.project_name,
-    //             project_description: task.project_description
-    //         }
-    //     }
-    //
-    // })
-
-
+   });
 };
 
 const create = async newTask => {
@@ -85,7 +54,7 @@ const create = async newTask => {
 module.exports = {
     getAllTask,
     create
-}
+};
 
 
 

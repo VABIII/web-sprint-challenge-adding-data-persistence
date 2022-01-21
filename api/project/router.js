@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const Project = require('./model');
-const { checkBody } = require('./middleware')
 
-router.get('/', checkBody, (req, res, next) => {
+
+router.get('/', (req, res, next) => {
     Project.getAllProj()
         .then(proj => {
             res.json(proj)
@@ -10,8 +10,7 @@ router.get('/', checkBody, (req, res, next) => {
         .catch(next)
 });
 
-
-router.post('/', checkBody, (req, res, next) => {
+router.post('/', (req, res, next) => {
 
     Project.create(req.body)
         .then(newProj => {

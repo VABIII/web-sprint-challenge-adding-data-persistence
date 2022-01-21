@@ -19,9 +19,8 @@ const getAllProj = async () => {
                 project_completed: true
             }
         }
-    })
-}
-
+    });
+};
 
 const create = newProj => {
     return  db('projects')
@@ -30,7 +29,7 @@ const create = newProj => {
             return  db('projects').where('project_id', project_id).first()
 
         })
-}
+};
 
 
 

@@ -1,10 +1,9 @@
-const db = require('../../data/dbConfig')
+const db = require('../../data/dbConfig');
 
 
 const getAllResources = () => {
     return db('resources')
-
-}
+};
 
 const create = newTable => {
     return db('resources')
@@ -18,7 +17,7 @@ const create = newTable => {
 module.exports = {
     getAllResources,
     create
-}
+};
 
 
 
