@@ -7,7 +7,12 @@ const getAllProj = () => {
 
 
 const create = newProj => {
-
+    return db('projects')
+        .insert(newProj)
+        .then(([project_id]) => {
+            console.log(project_id)
+            return db('projects').where('project_id', project_id)
+        })
 }
 
 

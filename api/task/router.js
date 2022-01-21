@@ -1,5 +1,25 @@
 const router = require('express').Router();
-const Task = require('./model')
+const Task = require('./model');
+
+
+router.get('/', (req, res, next) => {
+    Task.getAllTask()
+        .then(task => {
+            res.json(task)
+        })
+        .catch(next)
+});
+
+router.post('/', (req, res, next) => {
+    Task.create(req.body)
+        .then(newTask => {
+            res.status(201).json(newTask)
+        })
+        .catch(next)
+});
+
+
+module.exports = router;
 
 
 
@@ -13,16 +33,6 @@ const Task = require('./model')
 
 
 
-
-
-
-
-
-
-
-
-
-module.exports = router
 
 
 
