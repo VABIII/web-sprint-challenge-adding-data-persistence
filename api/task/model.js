@@ -6,7 +6,7 @@ const getAllTask = async () => {
        .select('t.*', 'p.*')
 
    return tasks.map (task => {
-       if(task.task_completed === false) {
+       if(task.task_completed === 0) {
            return {
                task_id: task.task_id,
                task_description: task.task_description,
