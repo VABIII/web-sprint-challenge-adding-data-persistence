@@ -5,7 +5,7 @@ const { checkBody } = require('./middleware')
 router.get('/', checkBody, (req, res, next) => {
     Project.getAllProj()
         .then(proj => {
-            res.json(proj)4
+            res.json(proj)
         })
         .catch(next)
 });
