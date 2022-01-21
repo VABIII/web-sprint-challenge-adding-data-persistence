@@ -4,8 +4,9 @@ const Task = require('./model');
 
 router.get('/', (req, res, next) => {
     Task.getAllTask()
-        .then(task => {
-            res.json(task)
+        .then(tasks => {
+
+            res.json(tasks)
         })
         .catch(next)
 });

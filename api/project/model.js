@@ -2,7 +2,6 @@ const db = require('../../data/dbConfig');
 
 const getAllProj = async () => {
     const projects = await  db('projects')
-    console.log(projects)
 
     return projects.map(proj => {
         if(proj.project_completed === 0){
